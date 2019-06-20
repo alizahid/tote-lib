@@ -42,7 +42,7 @@ export default class Func {
 
   invoke(): object | void {}
 
-  validate() {
+  _validate() {
     const {
       schema,
       request: { body, query }
@@ -71,7 +71,7 @@ export default class Func {
 
       try {
         if (func.schema) {
-          func.validate()
+          func._validate()
         }
 
         const body = await func.invoke()

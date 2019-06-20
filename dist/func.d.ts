@@ -14,7 +14,7 @@ export default class Func {
     status(status: number): this;
     send(body: object): this;
     invoke(): object | void;
-    validate(): void;
+    _validate(): void;
     static bootstrap(Func: Constructable): (context: Context, request: HttpRequest) => Promise<void>;
 }
 export {};

@@ -108,7 +108,7 @@ var Func = /** @class */ (function () {
         return this;
     };
     Func.prototype.invoke = function () { };
-    Func.prototype.validate = function () {
+    Func.prototype._validate = function () {
         var _a = this, schema = _a.schema, _b = _a.request, body = _b.body, query = _b.query;
         var request = {};
         if (schema.body) {
@@ -134,7 +134,7 @@ var Func = /** @class */ (function () {
                     case 1:
                         _b.trys.push([1, 3, , 4]);
                         if (func.schema) {
-                            func.validate();
+                            func._validate();
                         }
                         return [4 /*yield*/, func.invoke()];
                     case 2:

@@ -25,7 +25,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn build && pretty-quick --staged"
+      "pre-commit": "yarn build && git add ./dist && pretty-quick --staged"
     }
   }
 }
