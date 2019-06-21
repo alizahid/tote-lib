@@ -12,7 +12,7 @@
 
 #### Example
 
-```
+```javascript
 // import dependencies
 import { Func, joi } from 'tote-lib'
 
@@ -61,7 +61,7 @@ export default Func.bootstrap(Hello)
 
 Get input parameters.
 
-```
+```javascript
 // get parameters
 const {
   body: { foo },
@@ -73,7 +73,7 @@ const {
 
 **`status`**
 
-```
+```javascript
 this.status(404)
 ```
 
@@ -81,7 +81,7 @@ this.status(404)
 
 You can just return the object from your function. But you can also use `send`.
 
-```
+```javascript
 this.send({
   foo: 'bar'
 })
@@ -104,7 +104,7 @@ Look at [Joi docs](https://github.com/hapijs/joi).
 
 #### Usage
 
-```
+```javascript
 invoke('hello', {
   headers: {
     authorization: 'Bearer ...'
