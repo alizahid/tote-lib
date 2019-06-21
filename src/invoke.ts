@@ -2,7 +2,13 @@ import { resolve } from 'path'
 
 import { AzureFunction, Context } from '@azure/functions'
 
-export default async (name: string, request: any) => {
+interface Request {
+  body?: any
+  headers?: any
+  query?: any
+}
+
+export default async (name: string, request: Request = {}) => {
   const path = resolve('src', name)
 
   const func: AzureFunction = await require(path).default

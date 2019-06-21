@@ -181,31 +181,34 @@ var Func = /** @class */ (function () {
 }());
 
 var _this = undefined;
-var invoke = (function (name, request) { return __awaiter(_this, void 0, void 0, function () {
-    var path$1, func, context, _a, body, status;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                path$1 = path.resolve('src', name);
-                return [4 /*yield*/, require(path$1).default
-                    // @ts-ignore
-                ];
-            case 1:
-                func = _b.sent();
-                context = {
-                    res: {}
-                };
-                return [4 /*yield*/, func(context, request)];
-            case 2:
-                _b.sent();
-                _a = context.res, body = _a.body, status = _a.status;
-                return [2 /*return*/, {
-                        body: body,
-                        status: status
-                    }];
-        }
+var invoke = (function (name, request) {
+    if (request === void 0) { request = {}; }
+    return __awaiter(_this, void 0, void 0, function () {
+        var path$1, func, context, _a, body, status;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    path$1 = path.resolve('src', name);
+                    return [4 /*yield*/, require(path$1).default
+                        // @ts-ignore
+                    ];
+                case 1:
+                    func = _b.sent();
+                    context = {
+                        res: {}
+                    };
+                    return [4 /*yield*/, func(context, request)];
+                case 2:
+                    _b.sent();
+                    _a = context.res, body = _a.body, status = _a.status;
+                    return [2 /*return*/, {
+                            body: body,
+                            status: status
+                        }];
+            }
+        });
     });
-}); });
+});
 
 exports.joi = joi;
 exports.Exception = Exception;

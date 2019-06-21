@@ -1,4 +1,9 @@
-declare const _default: (name: string, request: any) => Promise<{
+interface Request {
+    body?: any;
+    headers?: any;
+    query?: any;
+}
+declare const _default: (name: string, request?: Request) => Promise<{
     body: any;
     status: any;
 }>;
