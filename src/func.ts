@@ -2,6 +2,8 @@ import get from 'lodash.get'
 import * as joi from '@hapi/joi'
 import { Context, HttpRequest } from '@azure/functions'
 
+const { NODE_ENV } = process.env
+
 interface Constructable {
   new (context: Context, request: HttpRequest)
 }
@@ -37,6 +39,10 @@ export default class Func {
       'content-type': 'application/json'
     }
 
+    if (!this.context.res.status) {
+      this.status(200)
+    }
+
     return this
   }
 
@@ -67,6 +73,11 @@ export default class Func {
 
   static bootstrap(Func: Constructable) {
     return async (context: Context, request: HttpRequest) => {
+      // workaround for Azure Function host bug
+      if (NODE_ENV === 'development') {
+        console.log = context.log
+      }
+
       const func: Func = new Func(context, request)
 
       try {

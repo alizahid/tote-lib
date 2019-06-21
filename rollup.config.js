@@ -8,7 +8,7 @@ const clean = () => ({
 })
 
 export default {
-  external: ['@hapi/joi', 'fs-extra', 'lodash.get'],
+  external: ['@hapi/joi', 'fs-extra', 'lodash.get', 'path'],
   input: './src/index.ts',
   output: {
     file: 'dist/index.js',

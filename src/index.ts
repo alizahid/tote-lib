@@ -4,3 +4,5 @@ export { joi }
 
 export { default as Exception } from './exception'
 export { default as Func } from './func'
+
+export { default as invoke } from './invoke'

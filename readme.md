@@ -4,11 +4,11 @@
 
 ## API
 
-`tote-lib` exports two items.
+`tote-lib` exports three items.
 
 ### `Func`
 
-`Func` is the class you use to setup your function. It includes several helper methods and a nice setup.
+`Func` is the class you use to setup your function. It includes several helper methods.
 
 #### Example
 
@@ -84,5 +84,33 @@ You can just return the object from your function. But you can also use `send`.
 ```
 this.send({
   foo: 'bar'
+})
+```
+
+### `joi`
+
+Look at [Joi docs](https://github.com/hapijs/joi).
+
+### `invoke`
+
+`invoke` is a helper for invoking functions when writing your tests.
+
+#### Parameters
+
+| Name      | Type     | Description                                                                  |
+| --------- | -------- | ---------------------------------------------------------------------------- |
+| `name`    | `string` | Function name, should correspond to a directory                              |
+| `request` | `Object` | Optional. Request object, may contain `body`, `headers`, and `query` objects |
+
+#### Usage
+
+```
+invoke('hello', {
+  headers: {
+    authorization: 'Bearer ...'
+  },
+  query: {
+    name: 'Ali'
+  }
 })
 ```
