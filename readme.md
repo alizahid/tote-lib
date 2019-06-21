@@ -1,10 +1,17 @@
-# `tote-lib`
+# tote-lib
 
 `tote-lib` is a helper library for [Tote](https://github.com/alizahid/tote).
 
 ## API
 
-`tote-lib` exports three items.
+`tote-lib` exports four items.
+
+1. [Func](#func)
+2. [Exception](#exception)
+3. [invoke](#invoke)
+4. [joi](#joi)
+
+---
 
 ### `Func`
 
@@ -53,7 +60,6 @@ export default Func.bootstrap(Hello)
 | `request`        | `Object`   | Request object. Contains `body`, `headers`, and `query` objects with any parameters |
 | `status<number>` | `Function` | Set the HTTP status code                                                            |
 | `send<object>`   | `Function` | Set the JSON body                                                                   |
-| `_validate`      | `Function` | Internal method for schema validation                                               |
 
 ##### Usage
 
@@ -87,9 +93,26 @@ this.send({
 })
 ```
 
-### `joi`
+---
 
-Look at [Joi docs](https://github.com/hapijs/joi).
+### `Exception`
+
+`Exception` extends `Error` and lets you throw sensible errors from your functions.
+
+#### Parameters
+
+| Name      | Type     | Description          | Default         |
+| --------- | -------- | -------------------- | --------------- |
+| `message` | `string` | Error message or key | `unknown_error` |
+| `status`  | `number` | HTTP status code     | `500`           |
+
+#### Usage
+
+```javascript
+throw new Exception('Email required', 400)
+```
+
+---
 
 ### `invoke`
 
@@ -114,3 +137,9 @@ invoke('hello', {
   }
 })
 ```
+
+---
+
+### `joi`
+
+Take a look at the [Joi docs](https://github.com/hapijs/joi).
