@@ -63,6 +63,14 @@ export default Func.bootstrap(Hello)
 
 ##### Usage
 
+**`schema`**
+
+Schema is optional, and you should only add it if you want to use Joi validation.
+
+**`invoke`**
+
+You need to override this method with your function implementation and return an `object` or `void` from it. In the latter case, `Func` will set the HTTP status code to `204`.
+
 **`request`**
 
 Get input parameters.
